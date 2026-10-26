@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/Favicon/icon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <title>Aadil Khan | Portfolio</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Smooth mobile dropdown */
+    #mobile-menu {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition:
+        grid-template-rows 350ms ease,
+        opacity 250ms ease;
+    }
+    header,
+header button {
+  font-family: "Zen Dots", sans-serif;
+}
+    #mobile-menu.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    #mobile-menu > div {
+      overflow: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #mobile-menu {
+        transition: none;
+      }
+    }
+
+   /* MARQUEE STYLES*/
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee-star {
+    color: #f97316;
+    font-size: 19px;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+    flex-shrink: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+
+#back-to-top .arrow-step {
+  opacity: 0.2;
+  animation: arrow-flow-up 1.2s ease-in-out infinite;
+}
+
+#back-to-top .step-1 {
+  animation-delay: 0.4s;
+}
+
+#back-to-top .step-2 {
+  animation-delay: 0.2s;
+}
+
+#back-to-top .step-3 {
+  animation-delay: 0s;
+}
+
+@keyframes arrow-flow-up {
+  0%, 100% {
+    opacity: 0.2;
+  }
+
+  35%, 65% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top .arrow-step {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+  </style>
+</head>
+
+<body class="bg-[#0c0c0c] text-white antialiased antialiased select-none">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-[#0c0c0c]/90 backdrop-blur-xl border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+      <div class="h-[76px] flex items-center justify-between">
+
+        <!-- LOGO / NAME -->
+        <a
+          href="#home"
+          class="text-lg sm:text-xl font-bold tracking-[0.12em] uppercase"
+        >
+          Aadil Khan<span class="text-orange-500">.</span>
+        </a>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex items-center gap-10">
+          <a
+            href="#about"
+            class="text-sm text-gray-400 hover:text-amber-500 transition-colors duration-300"
+          >
+            About
+          </a>
+
+          <a
+            href="#work"
+            class="text-sm text-gray-400 hover:text-amber-500 transition-colors duration-300"
+          >
+            Work
+          </a>
+
+          <a
+            href="#contact"
+            class="text-sm text-gray-400 hover:text-amber-500 transition-colors duration-300"
+          >
+            Contact Me
+          </a>
+        </div>
+
+        <!-- MOBILE HAMBURGER -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden w-11 h-11 flex items-center justify-center rounded-full border border-white/15 hover:bg-white/10 transition-colors"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            id="menu-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 8h16"></path>
+            <path d="M4 16h16"></path>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- MOBILE DROPDOWN -->
+      <div id="mobile-menu" class="md:hidden" inert>
+        <div>
+          <div class="pb-5 pt-1 flex flex-col">
+
+            <a
+              href="#about"
+              class="mobile-link py-4 border-t border-white/10 text-gray-300 hover:text-amber-500 transition-colors"
+            >
+              About
+              <span class="float-right text-gray-500">↗</span>
+            </a>
+
+            <a
+              href="#work"
+              class="mobile-link py-4 border-t border-white/10 text-gray-300 hover:text-amber-500 transition-colors"
+            >
+              Work
+              <span class="float-right text-gray-500">↗</span>
+            </a>
+
+            <a
+              href="#contact"
+              class="mobile-link py-4 border-t border-white/10 text-gray-300 hover:text-amber-500 transition-colors"
+            >
+              Contact Me
+              <span class="float-right text-gray-500">↗</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+ 
+<!-- HERO SECTION -->
+
+<!-- HERO SECTION -->
+<section id="home"
+  class="relative overflow-hidden bg-[#0c0c0c] pt-32 pb-24 md:pt-44 md:pb-32">
+
+  <!-- Ambient Orange Glows -->
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2
+    w-[350px] h-[350px] sm:w-[550px] sm:h-[550px]
+    bg-orange-600/15 rounded-full blur-[130px] pointer-events-none">
+  </div>
+
+  <div
+    class="absolute top-1/3 left-1/4
+    w-[250px] h-[250px] sm:w-[350px] sm:h-[350px]
+    bg-amber-500/10 rounded-full blur-[110px] pointer-events-none">
+  </div>
+
+  <!-- Hero Content -->
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 text-center relative z-10">
+
+    <!-- Availability Badge -->
+    <div
+      class="inline-flex items-center gap-2.5 px-4 py-2 mb-8
+      rounded-full bg-white/[0.04] border border-white/10
+      text-xs sm:text-sm text-gray-300 backdrop-blur-sm
+      font-['Space_Grotesk']">
+
+      <span class="relative flex h-2 w-2">
+        <span
+          class="absolute inline-flex h-full w-full rounded-full
+          bg-emerald-400 opacity-75 animate-ping">
+        </span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+      </span>
+
+      AVAILABLE FOR NEW PROJECTS
+    </div>
+
+    <!-- Main Heading: Zen Dots -->
+    <h1
+      class="font-['Zen_Dots'] text-3xl sm:text-5xl md:text-6xl lg:text-7xl
+      leading-[1.2] tracking-tight text-white mb-7">
+
+      I CREATE VISUALS<br class="hidden sm:block">
+
+      <span
+        class="bg-gradient-to-r from-orange-400 via-orange-500 to-amber-300
+        bg-clip-text text-transparent">
+        THAT MAKE BRANDS
+      </span>
+
+      <br class="hidden sm:block">
+
+      STAND OUT
+    </h1>
+
+    <!-- Description: Space Grotesk -->
+    <p
+      class="font-['Space_Grotesk'] text-base sm:text-lg md:text-xl
+      text-gray-400 max-w-2xl mx-auto mb-10
+      leading-6 sm:leading-8">
+I’m <span class="bg-gradient-to-t from-orange-400 via-orange-500 to-amber-300
+        bg-clip-text text-transparent">Aadil Khan</span>, a graphic designer and video editor creating eye-catching designs, engaging videos, and clickable YouTube thumbnails
+    </p>
+
+    <!-- CTA Buttons -->
+    <div
+      class="font-['Space_Grotesk'] flex flex-col sm:flex-row
+      items-center justify-center gap-4">
+
+      <!-- Primary Button -->
+      <a
+        href="#work"
+        class="group w-full sm:w-auto inline-flex items-center justify-center
+        gap-3 px-7 py-4 rounded-xl
+        bg-gradient-to-r from-orange-500 to-amber-500
+        text-black text-base font-semibold
+        shadow-[0_0_30px_rgba(249,115,22,0.18)]
+        hover:shadow-[0_0_40px_rgba(249,115,22,0.35)]
+        hover:-translate-y-1 active:translate-y-0
+        transition-all duration-300">
+
+        <span>Explore My Work</span>
+
+        <!-- Arrow -->
+        <span
+          class="inline-flex items-center justify-center w-7 h-7
+          rounded-full bg-black/10
+          group-hover:translate-x-1 transition-transform duration-300"
+          aria-hidden="true">
+          <svg
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M7 17 17 7"></path>
+            <path d="M7 7h10v10"></path>
+          </svg>
+        </span>
+      </a>
+
+      <!-- Secondary Button -->
+      <a
+        href="#contact"
+        class="group w-full sm:w-auto inline-flex items-center justify-center
+        gap-3 px-7 py-4 rounded-xl
+        border border-white/15 bg-white/[0.03]
+        text-white text-base font-medium backdrop-blur-sm
+        hover:border-orange-500/50 hover:bg-orange-500/[0.06]
+        hover:-translate-y-1 active:translate-y-0
+        transition-all duration-300">
+
+        <span>Contact Me</span>
+
+        <!-- Arrow -->
+        <svg
+          class="w-4 h-4 text-gray-400
+          group-hover:text-orange-400 group-hover:translate-x-1
+          transition-all duration-300"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <path d="M7 17 17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </a>
+
+    </div>
+
+<!-- Quick Portfolio Navigation -->
+<div class="flex flex-wrap justify-center gap-3 mt-8">
+
+  <a href="#work"
+     class="rounded-full border border-white/15 px-5 py-3 text-sm text-gray-300 transition hover:border-orange-500 hover:text-orange-500">
+    Thumbnail Design ↗
+  </a>
+
+  <a href="#social-media"
+     class="rounded-full border border-white/15 px-5 py-3 text-sm text-gray-300 transition hover:border-orange-500 hover:text-orange-500">
+    Social Media ↗
+  </a>
+
+  <a href="#video-editing"
+     class="rounded-full border border-white/15 px-5 py-3 text-sm text-gray-300 transition hover:border-orange-500 hover:text-orange-500">
+    Video Editing ↗
+  </a>
+
+</div>
+
+</section>
+
+<!-- INFINITE MARQUEE SLIDER -->
+<section
+  class="relative w-full overflow-hidden bg-[#0c0c0c]
+  border-y border-white/10 py-5 select-none"
+  aria-label="Creative services">
+
+  <!-- Left Gradient Fade -->
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-24
+    bg-gradient-to-r from-[#0c0c0c] to-transparent">
+  </div>
+
+  <!-- Right Gradient Fade -->
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-24
+    bg-gradient-to-l from-[#0c0c0c] to-transparent">
+  </div>
+
+  <!-- Animated Track -->
+  <div
+    class="marquee-track flex w-max
+    hover:[animation-play-state:paused]">
+
+    <!-- Group 1 -->
+    <div
+      class="flex shrink-0 items-center gap-6 sm:gap-8 px-3 sm:px-4
+      font-['Space_Grotesk'] font-semibold
+      text-[11px] sm:text-sm tracking-[0.16em] sm:tracking-[0.22em]
+      uppercase text-neutral-300">
+
+      <span>Thumbnail Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Social Media Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Video Editing</span>
+      <span class="marquee-star">✳</span>
+
+    </div>
+
+    <!-- Group 2: Duplicate for seamless looping -->
+    <div
+      class="flex shrink-0 items-center gap-6 sm:gap-8 px-3 sm:px-4
+      font-['Space_Grotesk'] font-semibold
+      text-[11px] sm:text-sm tracking-[0.16em] sm:tracking-[0.22em]
+      uppercase text-neutral-300"
+      aria-hidden="true">
+
+      <span>Thumbnail Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Social Media Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Video Editing</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Built For Creators</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Scroll Stopping Design</span>
+      <span class="marquee-star">✳</span>
+    </div>
+    <div
+      class="flex shrink-0 items-center gap-6 sm:gap-8 px-3 sm:px-4
+      font-['Space_Grotesk'] font-semibold
+      text-[11px] sm:text-sm tracking-[0.16em] sm:tracking-[0.22em]
+      uppercase text-neutral-300"
+      aria-hidden="true">
+
+      <span>Thumbnail Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Social Media Design</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Video Editing</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Built For Creators</span>
+      <span class="marquee-star">✳</span>
+
+      <span>Scroll Stopping Design</span>
+      <span class="marquee-star">✳</span>
+    </div>
+  </div>
+</section>
+
+ <!-- Thumbnail Section -->
+
+<section id="work" class="bg-[#0c0c0c] py-16 sm:py-20 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-10 sm:mb-22">
+      <h2 class="font-['Zen_Dots'] text-2xl sm:text-4xl md:text-5xl text-white">
+        Thumbnail Design<span class="text-orange-500">.</span>
+      </h2>
+    </div>
+
+    <!-- Thumbnail Grid -->
+    <div
+      id="thumbnail-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+    ></div>
+
+  </div>
+  <style>
+    
+#social-media-grid > .social-card {
+  overflow: hidden;
+}
+
+#social-media-grid > .social-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 779px) {
+  #social-media-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    overflow: visible !important;
+    gap: 16px !important;
+  }
+
+  #social-media-grid > .social-card {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  #social-media-grid > .social-card img {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  #social-media-grid > .social-card > div {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+  </style>
+</section>
+
+
+<!-- Social Media Design Section -->
+<section id="social-media" class="bg-[#0c0c0c] py-6 sm:py-6 md:py-6">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-10 sm:mb-22">
+      <h2 class="font-['Zen_Dots'] text-2xl sm:text-4xl md:text-5xl text-white">
+        Social Media Design<span class="text-orange-500">.</span>
+      </h2>
+    </div>
+
+    <!-- Social Media Grid -->
+    <div
+      id="social-media-grid"
+      class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 items-start"
+    ></div>
+
+  </div>
+</section>
+
+
+<button
+  id="back-to-top"
+  aria-label="Back to top"
+  title="Back to top"
+  class="fixed bottom-6 right-6 z-50 flex h-15 w-15 translate-y-4 items-center justify-center rounded-full bg-[#0c0c0c]/90 backdrop-blur-xl border border-white/15 text-gray-300 opacity-0 pointer-events-none transition-all duration-300 hover:border-orange-500 hover:text-orange-500"
+>
+  
+<svg
+  class="scroll-indicator"
+  xmlns="http://www.w3.org/2000/svg"
+  width="28"
+  height="32"
+  viewBox="0 0 28 32"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    class="arrow-step step-1"
+    d="M3 10 L14 5 L25 10 L25 14 L14 9 L3 14 Z"
+    fill="currentColor"
+  />
+  <path
+    class="arrow-step step-2"
+    d="M3 17 L14 12 L25 17 L25 21 L14 16 L3 21 Z"
+    fill="currentColor"
+  />
+  <path
+    class="arrow-step step-3"
+    d="M3 24 L14 19 L25 24 L25 28 L14 23 L3 28 Z"
+    fill="currentColor"
+  />
+</svg>
+
+</button>
+
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    const openIcon = `
+      <path d="M4 8h16"></path>
+      <path d="M4 16h16"></path>
+    `;
+
+    const closeIcon = `
+      <path d="M18 6 6 18"></path>
+      <path d="m6 6 12 12"></path>
+    `;
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle("open", open);
+      mobileMenu.inert = !open;
+
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuIcon.innerHTML = open ? closeIcon : openIcon;
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen =
+        menuToggle.getAttribute("aria-expanded") === "true";
+
+      setMenu(!isOpen);
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => setMenu(false));
+    });
+
+    // Close when switching to desktop layout
+    window.matchMedia("(min-width: 768px)").addEventListener("change", () => {
+      setMenu(false);
+    });
+
+    // Close with Escape
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+      }
+    });
+  </script>
+<script src="./js/thumbnails.js"></script>
+<script src="./js/social-media.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
